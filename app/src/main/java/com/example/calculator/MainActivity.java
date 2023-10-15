@@ -3,6 +3,7 @@ package com.example.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ApplicationExitInfo;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         EditText editTextNumber = findViewById(R.id.editTextNumber);
         EditText editTextNumber3 = findViewById(R.id.editTextNumber3);
-
+        TextView tv = findViewById(R.id.textView3);
+        tv.setVisibility(View.GONE);
 
 
         button1.setOnClickListener(new View.OnClickListener(){
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                    int r = v1 + v2;
 
                    Toast.makeText(getApplicationContext(), "Answer is: " + r, Toast.LENGTH_LONG). show();
+                   tv.setText("Answer: "+ r);
+                   tv.setVisibility(View.VISIBLE);
 
                } catch (NumberFormatException e){
                    Toast.makeText(getApplicationContext(), "ang dami!", Toast.LENGTH_SHORT).show();
@@ -47,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 editTextNumber3.setText("");
                 editTextNumber.setText("");
+                tv.setVisibility(View.GONE);
             }
         });
         button3.setOnLongClickListener(new View.OnLongClickListener(){
