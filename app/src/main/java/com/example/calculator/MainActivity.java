@@ -1,10 +1,13 @@
 package com.example.calculator;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ApplicationExitInfo;
+import android.content.Intent;
 import android.opengl.Visibility;
 import android.os.Bundle;
+import android.service.autofill.FillEventHistory;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        openLogin();
 
         Button button1 = findViewById(R.id.button);
         Button button2 = findViewById(R.id.button2);
@@ -61,5 +66,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private void openLogin() {
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
     }
 }
