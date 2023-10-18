@@ -20,7 +20,6 @@ public class Login extends AppCompatActivity {
         EditText et2 = findViewById(R.id.editTextTextPassword);
 
         button4.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT);
             }

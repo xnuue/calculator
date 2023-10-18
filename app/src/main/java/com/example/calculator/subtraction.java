@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class subtraction extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,22 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
 
         button1.setOnClickListener(new View.OnClickListener(){
-           public void onClick(View v){
-               String n1 = editTextNumber.getText().toString();
-               String n2 = editTextNumber3.getText().toString();
-               try{
-                   int v1 = Integer.parseInt(n1);
-                   int v2 = Integer.parseInt(n2);
-                   int r = v1 + v2;
+            public void onClick(View v){
+                String n1 = editTextNumber.getText().toString();
+                String n2 = editTextNumber3.getText().toString();
+                try{
+                    int v1 = Integer.parseInt(n1);
+                    int v2 = Integer.parseInt(n2);
+                    int r = v1 - v2;
 
-                   Toast.makeText(getApplicationContext(), "Answer is: " + r, Toast.LENGTH_LONG). show();
-                   tv.setText("Answer: "+ r);
-                   tv.setVisibility(View.VISIBLE);
+                    Toast.makeText(getApplicationContext(), "Answer is: " + r, Toast.LENGTH_LONG). show();
+                    tv.setText("Answer: "+ r);
+                    tv.setVisibility(View.VISIBLE);
 
-               } catch (NumberFormatException e){
-                   Toast.makeText(getApplicationContext(), "ang dami!", Toast.LENGTH_SHORT).show();
-               }
-           }
+                } catch (NumberFormatException e){
+                    Toast.makeText(getApplicationContext(), "ang dami!", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
         button2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
