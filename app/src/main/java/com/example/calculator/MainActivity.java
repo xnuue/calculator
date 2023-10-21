@@ -1,17 +1,11 @@
 package com.example.calculator;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ApplicationExitInfo;
-import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
-import android.service.autofill.FillEventHistory;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,9 +16,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button1 = findViewById(R.id.button);
+        Button button1 = findViewById(R.id.btnAdd);
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
+        Button subtract = findViewById(R.id.btnSub);
+        Button multiply = findViewById(R.id.btnMul);
+        Button divide = findViewById(R.id.btnDiv);
 
         EditText editTextNumber = findViewById(R.id.editTextNumber);
         EditText editTextNumber3 = findViewById(R.id.editTextNumber3);
@@ -34,9 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         button1.setOnClickListener(new View.OnClickListener(){
            public void onClick(View v){
-               String n1 = editTextNumber.getText().toString();
-               String n2 = editTextNumber3.getText().toString();
                try{
+                   String n1 = editTextNumber.getText().toString();
+                   String n2 = editTextNumber3.getText().toString();
+
                    int v1 = Integer.parseInt(n1);
                    int v2 = Integer.parseInt(n2);
                    int r = v1 + v2;
@@ -46,9 +44,63 @@ public class MainActivity extends AppCompatActivity {
                    tv.setVisibility(View.VISIBLE);
 
                } catch (NumberFormatException e){
-                   Toast.makeText(getApplicationContext(), "ang dami!", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(getApplicationContext(), "invalid, pare.", Toast.LENGTH_SHORT).show();
                }
            }
+        });
+        subtract.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                try {
+                    String n1 = editTextNumber.getText().toString();
+                    String n2 = editTextNumber3.getText().toString();
+
+                    int v1 = Integer.parseInt(n1);
+                    int v2 = Integer.parseInt(n2);
+                    int r = v1 - v2;
+                    Toast.makeText(getApplicationContext(), "Answer is: " + r, Toast.LENGTH_LONG).show();
+                    tv.setText("Answer: " + r);
+                    tv.setVisibility(View.VISIBLE);
+                } catch (NumberFormatException e){
+                    Toast.makeText(getApplicationContext(), "invalid, pare.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        multiply.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                try {
+                    String n1 = editTextNumber.getText().toString();
+                    String n2 = editTextNumber3.getText().toString();
+
+                    int v1 = Integer.parseInt(n1);
+                    int v2 = Integer.parseInt(n2);
+                    int r = v1 * v2;
+                    Toast.makeText(getApplicationContext(), "Answer is: " + r, Toast.LENGTH_LONG).show();
+                    tv.setText("Answer: " + r);
+                    tv.setVisibility(View.VISIBLE);
+                } catch (NumberFormatException e){
+                    Toast.makeText(getApplicationContext(), "invalid, pare.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        divide.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                try {
+                    String n1 = editTextNumber.getText().toString();
+                    String n2 = editTextNumber3.getText().toString();
+
+                    int v1 = Integer.parseInt(n1);
+                    int v2 = Integer.parseInt(n2);
+                    int r = v1 / v2;
+                    Toast.makeText(getApplicationContext(), "Answer is: " + r, Toast.LENGTH_LONG).show();
+                    tv.setText("Answer: " + r);
+                    tv.setVisibility(View.VISIBLE);
+                } catch (NumberFormatException e){
+                    Toast.makeText(getApplicationContext(), "invalid, pare.", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
         button2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
