@@ -89,15 +89,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    String n1 = editTextNumber.getText().toString();
-                    String n2 = editTextNumber3.getText().toString();
+                    try{
+                        String n1 = editTextNumber.getText().toString();
+                        String n2 = editTextNumber3.getText().toString();
 
-                    int v1 = Integer.parseInt(n1);
-                    int v2 = Integer.parseInt(n2);
-                    int r = v1 / v2;
-                    Toast.makeText(getApplicationContext(), "Answer is: " + r, Toast.LENGTH_LONG).show();
-                    tv.setText("Answer: " + r);
-                    tv.setVisibility(View.VISIBLE);
+                        int v1 = Integer.parseInt(n1);
+                        int v2 = Integer.parseInt(n2);
+                        int r = v1 / v2;
+                        Toast.makeText(getApplicationContext(), "Answer is: " + r, Toast.LENGTH_LONG).show();
+                        tv.setText("Answer: " + r);
+                        tv.setVisibility(View.VISIBLE);
+
+                    } catch (ArithmeticException e){
+                        Toast.makeText(getApplicationContext(), "invalid number input!", Toast.LENGTH_SHORT).show();
+                    }
                 } catch (NumberFormatException e){
                     Toast.makeText(getApplicationContext(), "invalid, pare.", Toast.LENGTH_SHORT).show();
                 }

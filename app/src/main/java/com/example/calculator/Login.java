@@ -2,6 +2,7 @@ package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ public class Login extends AppCompatActivity {
 
 
         button.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SuspiciousIndentation")
             public void onClick(View view) {
                 if(et1.getText().toString().equals("admin") && et2.getText().toString().equals("admin")){
                     Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_SHORT). show();
@@ -37,7 +39,7 @@ public class Login extends AppCompatActivity {
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                System.exit(0);
+                finish();
             }
         });
     }
