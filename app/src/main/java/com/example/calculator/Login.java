@@ -27,14 +27,17 @@ public class Login extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SuspiciousIndentation")
             public void onClick(View view) {
-                if(et1.getText().toString().equals("admin") && et2.getText().toString().equals("admin")){
+                if(et1.getText().toString().equals("calculator") && et2.getText().toString().equals("admin")){
                     Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_SHORT). show();
                     openLogin();
-                } else
+
+                } else if(et1.getText().toString().equals("converter") && et2.getText().toString().equals("admin")){
+                    Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_SHORT).show();
+                    openConv();
+                }else
                     Toast.makeText(getApplicationContext(), "Wrong user or pass!", Toast.LENGTH_SHORT). show();
                     et1.setText("");
                     et2.setText("");
-
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +48,10 @@ public class Login extends AppCompatActivity {
     }
     private void openLogin(){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    private void openConv(){
+        Intent intent = new Intent(this, converter.class);
         startActivity(intent);
     }
 }
